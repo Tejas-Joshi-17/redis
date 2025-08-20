@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -13,9 +12,6 @@ import java.util.List;
 public class WeatherService {
 
     private static final Logger logger = LoggerFactory.getLogger(WeatherService.class);
-
-    @Autowired
-    private RestTemplate restTemplate;
 
     @Autowired
     private RedisService redisService;
@@ -30,7 +26,7 @@ public class WeatherService {
             weatherResponse1.setTemperature(25);
             weatherResponse1.setWeatherDescriptions(List.of("USA", "CHINA"));
             weatherResponse1.setFeelsLike(25);
-            redisService.set("weather_of_" + city, weatherResponse1, 10000L);
+            redisService.set("weather_of_" + city, weatherResponse1, 20000L);
             logger.info("Calling Weather API");
             return weatherResponse1;
         }

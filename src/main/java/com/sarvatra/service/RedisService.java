@@ -24,7 +24,6 @@ public class RedisService {
             assert o != null;
             return mapper.readValue(o.toString(), entityClass);
         } catch (Exception e) {
-            logger.error("Exception ", e);
             return null;
         }
     }
