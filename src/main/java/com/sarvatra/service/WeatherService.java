@@ -1,12 +1,13 @@
 package com.sarvatra.service;
 
-import com.sarvatra.mode.WeatherResponse;
+import com.sarvatra.model.WeatherData;
+import com.sarvatra.repository.WeatherRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class WeatherService {
@@ -16,21 +17,33 @@ public class WeatherService {
     @Autowired
     private RedisService redisService;
 
-    public WeatherResponse getWeather(String city) {
-        WeatherResponse weatherResponse = redisService.get("weather_of_" + city, WeatherResponse.class);
-        if (weatherResponse != null) {
+    @Autowired
+    private WeatherRepository weatherRepository;
+
+    public WeatherData getWeather(String city) {
+        WeatherData weatherData = redisService.get(city, WeatherData.class);
+        if (weatherData != null) {
             logger.info("Returning Response from Redis");
-            return weatherResponse;
-        } else {
-            WeatherResponse weatherResponse1 = new WeatherResponse();
-            weatherResponse1.setTemperature(25);
-            weatherResponse1.setWeatherDescriptions(List.of("USA", "CHINA"));
-            weatherResponse1.setFeelsLike(25);
-            redisService.set("weather_of_" + city, weatherResponse1, 20000L);
-            logger.info("Calling Weather API");
-            return weatherResponse1;
+            return weatherData;
+        }else {
+            Optional<WeatherData> weatherData1 = weatherRepository.findByCityName(city);
+            if (weatherData1.isPresent()) {
+                WeatherData cityWeatherData = weatherData1.get();
+                redisService.set(cityWeatherData.getCityName(), cityWeatherData, -1L);
+                return redisService.get(city, WeatherData.class);
+            } else {
+                logger.info("No Data Found in Database");
+            }
+            return null;
         }
 
+    }
+
+    public WeatherData updateWeather(WeatherData weatherData) {
+        weatherRepository.save(weatherData);
+        logger.info("Update Data in Database");
+        redisService.set(weatherData.getCityName(), weatherData, -1L);  // -1 for no-timeout
+        return weatherData;
     }
 }
 

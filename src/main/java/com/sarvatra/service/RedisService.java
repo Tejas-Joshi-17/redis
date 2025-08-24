@@ -32,7 +32,7 @@ public class RedisService {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonValue = objectMapper.writeValueAsString(o);
-            redisTemplate.opsForValue().set(key, jsonValue, ttl, TimeUnit.MILLISECONDS);
+             redisTemplate.opsForValue().set(key, jsonValue, ttl, TimeUnit.MILLISECONDS);   //  -1 for non timeout
         } catch (Exception e) {
             logger.error("Exception ", e);
         }

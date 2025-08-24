@@ -39,3 +39,5 @@ out/
 ### Prject Specific ###
 ./logs/*
 
+/logs/redis-testing.log
+/logs/redis-testing-error.log
