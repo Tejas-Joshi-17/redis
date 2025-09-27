@@ -1,0 +1,121 @@
+{
+  "fields": {
+    "ct": "last4",
+    "sk": "last4",
+    "iv": "last4",
+    "name": "clear",
+    "Name": "clear",
+    "mobile": "last4",
+    "Mobile": "last4",
+    "device-id": "last4",
+    "DeviceId": "last4",
+    "email": "email",
+    "AccountNo": "clear",
+    "accountNo": "clear",
+    "account": "clear",
+    "ifsc": "last4",
+    "expiry-date": "clear",
+    "cardExpiry": "clear",
+    "cvv": "clear",
+    "passcode": "clear",
+    "cardNo": "last4",
+    "cardNbr": "last4",
+    "cardOriginalPAN": "last4",
+    "cardExpiryMonth": "clear",
+    "cardExpiryYear": "clear",
+    "securityCode": "clear",
+    "customerEmailID": "clear",
+    "customerMobileNo": "clear",
+    "customerRef": "clear",
+    "pk": "clear",
+    "given-name": "last4",
+    "address": "last4",
+    "mid": "last4",
+    "number": "last4",
+    "mobileNumber": "last4",
+    "mobile-number": "last4",
+    "VA": "last4",
+    "va": "last4",
+    "vpa": "last4",
+    "list-accounts": "last4",
+    "cardExpDte": "clear",
+    "acctNbr": "last4",
+    "cbs-auth-token": "clear",
+    "custEmail": "email",
+    "custMobileNbr": "last4",
+    "mobileNbr" : "last4",
+    "mobNbr": "last4",
+    "accountNbr" : "last4",
+    "payeeActNbr" :"last4",
+    "txn-info": {
+      "replace": "static",
+      "value": "wiped"
+    },
+    "data": {
+      "replace": "process-json"
+    },
+    "card": {
+      "replace": "process-json"
+    },
+    "payload": {
+      "replace": "process-json"
+    },
+    "profile": {
+      "replace": "process-json"
+    },
+    "user": {
+      "replace": "process-json"
+    },
+    "body": {
+      "replace": "process-json"
+    },
+    "consumerInstrument": {
+      "replace": "process-json"
+    },
+    "respBody": {
+      "replace": "process-json"
+    },
+    "tokenInfo": {
+      "replace": "process-json"
+    },
+    "customer": {
+      "replace": "process-json"
+    },
+    "device": {
+      "replace": "process-json"
+    },
+    "transaction-details": {
+      "replace": "process-json"
+    },
+    "participants": {
+      "replace": "process-json"
+    },
+    "Payer": {
+      "replace": "process-json"
+    },
+    "Payee": {
+      "replace": "process-json"
+    },
+    "payer": {
+      "replace": "process-json"
+    },
+    "payee": {
+      "replace": "process-json"
+    },
+    "transaction": {
+      "replace": "process-json"
+    },
+    "POJO": {
+      "replace": "process-json"
+    },
+    "fetchCcmsCustomerCardSummaryResponse": {
+      "replace": "process-json"
+    },
+    "msgBdy": {
+      "replace": "process-json"
+    },
+    "acctRelData": {
+      "replace": "process-json"
+    }
+  }
+}

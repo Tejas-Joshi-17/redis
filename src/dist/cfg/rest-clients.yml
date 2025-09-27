@@ -1,0 +1,18 @@
+client-config:
+  clients:
+    namco:
+      baseUrl: https://finacle.infy.com:35050
+      connectTimeout: 5000
+      readTimeout: 8000
+      useProxy: false
+      maxTotalConnections: 500
+      maxPerRouteConnections: 500
+
+    namco-test:
+      baseUrl: https://4c3895b4-c409-4410-b120-80f1330352f6.mock.pstmn.io/
+      connectTimeout: 5000
+      readTimeout: 8000
+      useProxy: false
+      maxTotalConnections: 500
+      maxPerRouteConnections: 500
+
